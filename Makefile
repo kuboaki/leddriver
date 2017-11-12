@@ -6,13 +6,9 @@ TARGET = LedDriver
 OBJS = LedDriver.o LedDriverTest.o
 
 # not install yet, use build one.
-CPPUTESTDIR=./cpputest
-INCDIR = -I$(CPPUTESTDIR)/include
-LIBDIR = -L$(CPPUTESTDIR)/cpputest_build/lib
-
-# you've already installed in your home.
-# INCDIR = -I$$HOME/include
-# LIBDIR = -L$$HOME/lib
+CPPUTEST_HOME=$$HOME
+INCDIR = -I$(CPPUTEST_HOME)/include
+LIBDIR = -L$(CPPUTEST_HOME)/lib
 
 LIBS = -lm -lCppUTest -lCppUTestExt
 
