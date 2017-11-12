@@ -1,4 +1,6 @@
 
+CPPUTEST_HOME=$$HOME
+
 CFLAGS  = -Wall
 
 TARGET = LedDriver
@@ -6,7 +8,6 @@ TARGET = LedDriver
 OBJS = LedDriver.o LedDriverTest.o
 
 # not install yet, use build one.
-CPPUTEST_HOME=$$HOME
 INCDIR = -I$(CPPUTEST_HOME)/include
 LIBDIR = -L$(CPPUTEST_HOME)/lib
 
