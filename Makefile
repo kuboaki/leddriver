@@ -1,34 +1,20 @@
+# Minimal makefile for Sphinx documentation
+#
 
-# CPPUTEST_HOME=$$HOME
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS    ?=
+SPHINXBUILD   ?= sphinx-build
+SOURCEDIR     = .
+BUILDDIR      = _build
 
-CFLAGS  = -Wall
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-TARGET = LedDriver
+.PHONY: help Makefile
 
-OBJS = LedDriver.o LedDriverTest.o
-
-# not install yet, use build one.
-INCDIR = -I$(CPPUTEST_HOME)/include
-LIBDIR = -L$(CPPUTEST_HOME)/lib
-
-LIBS = -lm -lCppUTest -lCppUTestExt
-
-$(TARGET): $(OBJS)
-	$(CXX) -o $@ $^ $(LIBDIR) $(LIBS)
-
-LedDriver.o: LedDriver.c
-	$(CC) -c LedDriver.c
-
-LedDriverTest.o: LedDriverTest.cpp
-	$(CXX) -c LedDriverTest.cpp $(INCDIR)
-
-# .PHONY: all
-all:
-	make
-	./$(TARGET) -c -v
-
-# .PHONY: clean
-clean:
-	$(RM) $(TARGET) $(OBJS)
-
-$(OBJS): LedDriver.h
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

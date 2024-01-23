@@ -1,0 +1,12 @@
+LedDriver
+*~
+\#*\#
+.\#*
+*.tmp
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+log
+*.o
+*.d
